@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Information</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Al Houda</div>
+        <nav>
+            <a href="\projectIT\map.html"><button class="back-btn" onclick="history.back()">← Back</button></a>
+        </nav>
+    </header>
+
+    <main class="city-info-container">
+        <div class="city-image">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13084.416474504485!2d-9.547618146410638!3d30.396936895964075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3c825f48b65f7%3A0xc1a03d5109d60a9e!2sCité%20El%20Houda%2C%20Agadir%2080000!5e1!3m2!1sfr!2sma!4v1747572877741!5m2!1sfr!2sma" width="1170" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        
+        <div class="city-details">
+            <h1 id="cityName">Description:</h1>
+            <p id="cityDescription" class="description">
+Al Houda, also known as Cité El Houda, is a dynamic residential neighborhood situated in the southern part of Agadir, Morocco. Positioned near the Ibn Zohr University, it boasts a diverse mix of modern apartment complexes, medium-sized villas, and affordable housing options, making it a popular choice for students, families, and professionals alike.
+            </p>
+            
+            <div class="activities-section">
+                <h2>Activities:</h2>
+                <ul id="activitiesList" class="activities-list">
+                    <li>Community and Daily Life</li>
+                    <li>Shopping and Markets</li>
+                    <li>Educational and Study Spaces</li>
+                    <li>Local Commerce and Services</li>
+                    <li>Recreational Activities</li>
+                </ul>
+            </div>
+
+            <button class="reservation-btn">Make a Reservation</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 

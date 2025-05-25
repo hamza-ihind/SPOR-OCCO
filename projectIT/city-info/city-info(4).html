@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Information</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Dakhla</div>
+        <nav>
+            <a href="\projectIT\map.html"><button class="back-btn" onclick="history.back()">← Back</button></a>
+        </nav>
+    </header>
+
+    <main class="city-info-container">
+        <div class="city-image">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13082.013964955577!2d-9.567380696398892!3d30.414865945822807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3b62c2865c773%3A0x29f348e7f904b5c4!2sCité%20Dakhla%2C%20Agadir%2080000!5e1!3m2!1sfr!2sma!4v1747572635288!5m2!1sfr!2sma" width="1170" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        
+        <div class="city-details">
+            <h1 id="cityName">Description:</h1>
+            <p id="cityDescription" class="description">
+Dakhla (الداخلة) is one of the largest and most dynamic residential neighborhoods in Agadir, Morocco. It is known for its affordable housing, active community life, and practical amenities, making it a favorite among families, students, and working-class residents.
+            </p>
+            
+            <div class="activities-section">
+                <h2>Activities:</h2>
+                <ul id="activitiesList" class="activities-list">
+                    <li>Business and Professional Services</li>
+                    <li>Cafés and Social Life</li>
+                    <li>Affordable Local Eateries</li>
+                    <li>Proximity to Universities</li>
+                    <li>Walking and Socializing</li>
+                </ul>
+            </div>
+
+            <button class="reservation-btn">Make a Reservation</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 

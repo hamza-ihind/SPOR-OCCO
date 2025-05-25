@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Information</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Hay Salam</div>
+        <nav>
+            <a href="\projectIT\map.html"><button class="back-btn" onclick="history.back()">← Back</button></a>
+        </nav>
+    </header>
+
+    <main class="city-info-container">
+        <div class="city-image">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14686.95615067923!2d-9.557191625513923!3d30.395629779045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sfr!2sma!4v1747572772084!5m2!1sfr!2sma" width="1170" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        
+        <div class="city-details">
+            <h1 id="cityName">Description:</h1>
+            <p id="cityDescription" class="description">
+Hay Salam is a vibrant residential neighborhood situated in the southern part of Agadir, Morocco. Known for its family-friendly environment, it offers a blend of modern amenities and traditional Moroccan charm.
+            </p>
+            
+            <div class="activities-section">
+                <h2>Activities:</h2>
+                <ul id="activitiesList" class="activities-list">
+                    <li>Community and Living</li>
+                    <li>Shopping and Amenities</li>
+                    <li>Nearby Attractions and Activities</li>
+                    <li>Accommodation Options</li>
+                </ul>
+            </div>
+
+            <button class="reservation-btn">Make a Reservation</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
