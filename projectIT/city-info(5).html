@@ -1,45 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Information</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hay Mohammadi - Agadir | Modern Urban Development</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --urban-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        --development-accent: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+        --modern-blue: #1a73e8;
+        --text-light: #f8f9fa;
+        --text-dark: #202124;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana,
+          sans-serif;
+      }
+
+      body {
+        background: var(--urban-gradient);
+        color: var(--text-light);
+        line-height: 1.8;
+        min-height: 100vh;
+      }
+
+      @keyframes urbanPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: var(--shadow);
+        }
+        50% {
+          transform: scale(1.01);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 3rem;
+        background: rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .logo {
+        font-size: 2.2rem;
+        font-weight: 700;
+        background: linear-gradient(to right, #ffffff, #c2e9fb);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: 1px;
+      }
+
+      .back-btn {
+        padding: 0.8rem 1.8rem;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        backdrop-filter: blur(5px);
+      }
+
+      .back-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .main-content {
+        padding-top: 100px;
+        padding-bottom: 50px;
+      }
+
+      .city-info-container {
+        display: flex;
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 3rem;
+        padding: 0 3rem;
+      }
+
+      .city-image {
+        flex: 1;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        height: 650px;
+        animation: urbanPulse 6s ease-in-out infinite;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .city-image iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .city-details {
+        flex: 1;
+        background: rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(15px);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.4s ease;
+      }
+
+      .city-details:hover {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        margin-bottom: 1.8rem;
+        background: linear-gradient(to right, #ffffff, #c2e9fb);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .description {
+        margin-bottom: 2.5rem;
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.9;
+      }
+
+      .activities-section {
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1.8rem;
+        color: white;
+        position: relative;
+        display: inline-block;
+        font-weight: 600;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: var(--development-accent);
+        border-radius: 2px;
+      }
+
+      .activities-list {
+        list-style-type: none;
+      }
+
+      .activities-list li {
+        padding: 1.2rem 0;
+        padding-left: 2.5rem;
+        position: relative;
+        font-size: 1.15rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .activities-list li:hover {
+        transform: translateX(10px);
+        color: white;
+      }
+
+      .activities-list li:before {
+        content: "→";
+        color: var(--modern-blue);
+        font-weight: bold;
+        font-size: 1.5rem;
+        position: absolute;
+        left: 0;
+        top: 1rem;
+      }
+
+      .reservation-btn {
+        width: 100%;
+        padding: 1.4rem;
+        background: var(--development-accent);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 114, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .reservation-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(0, 114, 255, 0.4);
+        background: linear-gradient(135deg, #0072ff 0%, #0058cb 100%);
+      }
+
+      .stats-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .stat-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        font-size: 0.95rem;
+        opacity: 0.9;
+      }
+
+      .highlight {
+        background: rgba(0, 198, 255, 0.2);
+        padding: 0.3rem 0.6rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+
+      @media (max-width: 1200px) {
+        .city-info-container {
+          flex-direction: column;
+        }
+
+        .city-image,
+        .city-details {
+          flex: none;
+          width: 100%;
+        }
+
+        .city-image {
+          height: 500px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          padding: 1rem 1.5rem;
+        }
+
+        .logo {
+          font-size: 1.8rem;
+        }
+
+        .city-info-container {
+          padding: 0 1.5rem;
+          gap: 2rem;
+        }
+
+        .city-details {
+          padding: 2rem;
+        }
+
+        .stats-container {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+      }
+
+      /* Urban pattern decoration */
+      .urban-decoration {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><rect x="0" y="0" width="100" height="100" fill="rgba(255,255,255,0.05)"/><rect x="100" y="0" width="100" height="100" fill="rgba(255,255,255,0.03)"/><rect x="200" y="0" width="100" height="100" fill="rgba(255,255,255,0.02)"/><rect x="300" y="0" width="100" height="100" fill="rgba(255,255,255,0.05)"/><rect x="400" y="0" width="100" height="100" fill="rgba(255,255,255,0.03)"/><rect x="500" y="0" width="100" height="100" fill="rgba(255,255,255,0.02)"/><rect x="600" y="0" width="100" height="100" fill="rgba(255,255,255,0.05)"/><rect x="700" y="0" width="100" height="100" fill="rgba(255,255,255,0.03)"/><rect x="800" y="0" width="100" height="100" fill="rgba(255,255,255,0.02)"/><rect x="900" y="0" width="100" height="100" fill="rgba(255,255,255,0.05)"/><rect x="1000" y="0" width="100" height="100" fill="rgba(255,255,255,0.03)"/><rect x="1100" y="0" width="100" height="100" fill="rgba(255,255,255,0.02)"/></svg>');
+        background-size: cover;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="urban-decoration"></div>
+
     <header class="header">
-        <div class="logo">Hay Mohammadi</div>
-        <nav>
-            <a href="map.html"><button class="back-btn" onclick="history.back()">← Back</button></a>
-        </nav>
+      <div class="logo">Hay Mohammadi</div>
+      <nav>
+        <a href="map.html">
+          <button class="back-btn">
+            <i class="fas fa-chevron-left"></i> Back to Map
+          </button>
+        </a>
+      </nav>
     </header>
 
-    <main class="city-info-container">
+    <main class="main-content">
+      <div class="city-info-container">
         <div class="city-image">
-             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26159.01212576054!2d-9.600829359704077!3d30.433571312215552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3b616b7f0c3d1%3A0x8eb5ace4ec157f19!2sCité%20Al%20Mohammadi%2C%20Agadir%2080000!5e1!3m2!1sfr!2sma!4v1747572687894!5m2!1sfr!2sma" width="1170" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26159.01212576054!2d-9.600829359704077!3d30.433571312215552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3b616b7f0c3d1%3A0x8eb5ace4ec157f19!2sCité%20Al%20Mohammadi%2C%20Agadir%2080000!5e1!3m2!1sfr!2sma!4v1747572687894!5m2!1sfr!2sma"
+            width="1170"
+            height="800"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
-        
+
         <div class="city-details">
-            <h1 id="cityName">Description:</h1>
-            <p id="cityDescription" class="description">
-Hay Mohammadi is a prominent urban development located in the northeast of Agadir, Morocco. Initiated in 2002 to address the city's housing deficit, the area spans approximately 465 hectares and was designed to accommodate around 100,000 residents. By 2007, inhabitants began settling in the neighborhood, which continues to evolve and expand.
-            </p>
-            
-            <div class="activities-section">
-                <h2>Activities:</h2>
-                <ul id="activitiesList" class="activities-list">
-                    <li>Adrar Stadium</li>
-                    <li>Kooraland Academy</li>
-                    <li>Maroc Racing Kart</li>
-                    <li>Club Moov’UP Fitness</li>
-                    <li>SHYVA Wellness</li>
-                </ul>
+          <div class="stats-container">
+            <div class="stat-card">
+              <div class="stat-number">465</div>
+              <div class="stat-label">Hectares Area</div>
             </div>
+            <div class="stat-card">
+              <div class="stat-number">100K+</div>
+              <div class="stat-label">Residents</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">2002</div>
+              <div class="stat-label">Development Start</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">2007</div>
+              <div class="stat-label">First Residents</div>
+            </div>
+          </div>
 
-            <button class="reservation-btn">Make a Reservation</button>
+          <h1 id="cityName">Hay Mohammadi</h1>
+          <p id="cityDescription" class="description">
+            <span class="highlight">Hay Mohammadi</span> is a prominent urban
+            development located in the northeast of Agadir, Morocco. Initiated
+            in
+            <span class="highlight"
+              >2002 to address the city's housing deficit</span
+            >, this planned community spans approximately 465 hectares and was
+            designed to accommodate around 100,000 residents. Today, it stands
+            as a model of <span class="highlight">modern urban planning</span>,
+            continuing to evolve and expand with new amenities and
+            infrastructure.
+          </p>
+
+          <div class="activities-section">
+            <h2>Key Facilities</h2>
+            <ul id="activitiesList" class="activities-list">
+              <li><i class="fas fa-futbol"></i> Adrar Stadium</li>
+              <li><i class="fas fa-graduation-cap"></i> Kooraland Academy</li>
+              <li><i class="fas fa-flag-checkered"></i> Maroc Racing Kart</li>
+              <li><i class="fas fa-dumbbell"></i> Club Moov'UP Fitness</li>
+              <li><i class="fas fa-spa"></i> SHYVA Wellness Center</li>
+              <li><i class="fas fa-store"></i> Modern Commercial Centers</li>
+            </ul>
+          </div>
+
+          <button class="reservation-btn">
+            <i class="fas fa-city"></i> Explore the District
+          </button>
         </div>
+      </div>
     </main>
-
-    <script src="script.js"></script>
-</body>
-</html> 
+  </body>
+</html>

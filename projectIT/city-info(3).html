@@ -1,45 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Information</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haut Founty - Agadir | Upscale Residential District</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --urban-gradient: linear-gradient(135deg, #2c3e50 0%, #4b79cf 100%);
+        --luxury-accent: linear-gradient(135deg, #8e9eab 0%, #eef2f3 100%);
+        --modern-gray: #e0e5ec;
+        --text-light: #f8f9fa;
+        --text-dark: #2d3436;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana,
+          sans-serif;
+      }
+
+      body {
+        background: var(--urban-gradient);
+        color: var(--text-light);
+        line-height: 1.8;
+        min-height: 100vh;
+      }
+
+      @keyframes subtleFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 3rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .logo {
+        font-size: 2.2rem;
+        font-weight: 700;
+        background: linear-gradient(to right, #ffffff, var(--modern-gray));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: 1px;
+      }
+
+      .back-btn {
+        padding: 0.8rem 1.8rem;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        backdrop-filter: blur(5px);
+      }
+
+      .back-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .main-content {
+        padding-top: 100px;
+        padding-bottom: 50px;
+      }
+
+      .city-info-container {
+        display: flex;
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 3rem;
+        padding: 0 3rem;
+      }
+
+      .city-image {
+        flex: 1;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        height: 650px;
+        animation: subtleFloat 8s ease-in-out infinite;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .city-image iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .city-details {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(15px);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.4s ease;
+      }
+
+      .city-details:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        margin-bottom: 1.8rem;
+        background: linear-gradient(to right, #ffffff, var(--modern-gray));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .description {
+        margin-bottom: 2.5rem;
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.9;
+      }
+
+      .activities-section {
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1.8rem;
+        color: white;
+        position: relative;
+        display: inline-block;
+        font-weight: 600;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: var(--luxury-accent);
+        border-radius: 2px;
+      }
+
+      .activities-list {
+        list-style-type: none;
+      }
+
+      .activities-list li {
+        padding: 1.2rem 0;
+        padding-left: 2.5rem;
+        position: relative;
+        font-size: 1.15rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .activities-list li:hover {
+        transform: translateX(10px);
+        color: white;
+      }
+
+      .activities-list li:before {
+        content: "›";
+        color: #8e9eab;
+        font-weight: bold;
+        font-size: 1.8rem;
+        position: absolute;
+        left: 0;
+        top: 1rem;
+      }
+
+      .reservation-btn {
+        width: 100%;
+        padding: 1.4rem;
+        background: var(--luxury-accent);
+        color: #2c3e50;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(142, 158, 171, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .reservation-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(142, 158, 171, 0.4);
+        background: linear-gradient(135deg, #eef2f3 0%, #bdc3c7 100%);
+      }
+
+      .tag-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 2.5rem;
+      }
+
+      .tag {
+        padding: 0.6rem 1.2rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .highlight {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0.3rem 0.6rem;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+
+      @media (max-width: 1200px) {
+        .city-info-container {
+          flex-direction: column;
+        }
+
+        .city-image,
+        .city-details {
+          flex: none;
+          width: 100%;
+        }
+
+        .city-image {
+          height: 500px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          padding: 1rem 1.5rem;
+        }
+
+        .logo {
+          font-size: 1.8rem;
+        }
+
+        .city-info-container {
+          padding: 0 1.5rem;
+          gap: 2rem;
+        }
+
+        .city-details {
+          padding: 2rem;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+      }
+
+      /* Modern urban pattern decoration */
+      .urban-decoration {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><rect width="1200" height="60" fill="rgba(255,255,255,0.05)"/><rect y="30" width="1200" height="30" fill="rgba(255,255,255,0.03)"/><rect y="60" width="1200" height="30" fill="rgba(255,255,255,0.02)"/></svg>');
+        background-size: cover;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="urban-decoration"></div>
+
     <header class="header">
-        <div class="logo">Haut Founty</div>
-        <nav>
-            <a href="map.html"><button class="back-btn" onclick="history.back()">← Back</button></a>
-        </nav>
+      <div class="logo">Haut Founty</div>
+      <nav>
+        <a href="map.html">
+          <button class="back-btn">
+            <i class="fas fa-chevron-left"></i> Back to Map
+          </button>
+        </a>
+      </nav>
     </header>
 
-    <main class="city-info-container">
+    <main class="main-content">
+      <div class="city-info-container">
         <div class="city-image">
-             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13084.442343112545!2d-9.587400646410781!3d30.39674379596563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3b7b1919e9395%3A0xf45f9f6f08337d21!2sHaut%20Founty%2C%20Agadir%2080000!5e1!3m2!1sfr!2sma!4v1747572976516!5m2!1sfr!2sma" width="1170" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13084.442343112545!2d-9.587400646410781!3d30.39674379596563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3b7b1919e9395%3A0xf45f9f6f08337d21!2sHaut%20Founty%2C%20Agadir%2080000!5e1!3m2!1sfr!2sma!4v1747572976516!5m2!1sfr!2sma"
+            width="1170"
+            height="800"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
-        
+
         <div class="city-details">
-            <h1 id="cityName">Description:</h1>
-            <p id="cityDescription" class="description">
-Haut Founty (فونتي العليا) is one of the most modern and rapidly developing residential neighborhoods in Agadir, Morocco. Located just inland from the beachside district of Founty, it’s known for its quiet, upscale atmosphere, well-planned streets, and growing popularity among professionals, families, and investors.
-            </p>
-            
-            <div class="activities-section">
-                <h2>Activities:</h2>
-                <ul id="activitiesList" class="activities-list">
-                    <li>Wellness and Fitness</li>
-                    <li>Upscale Dining and Cafés</li>
-                    <li>Local Shopping</li>
-                    <li>Family-Friendly Spaces</li>
-                    <li>Business and Professional Services</li>
-                </ul>
-            </div>
+          <div class="tag-container">
+            <span class="tag"
+              ><i class="fas fa-building"></i> Upscale Residential</span
+            >
+            <span class="tag"
+              ><i class="fas fa-chart-line"></i> Rapid Development</span
+            >
+            <span class="tag"
+              ><i class="fas fa-map-marker-alt"></i> Agadir, Morocco</span
+            >
+          </div>
 
-            <button class="reservation-btn">Make a Reservation</button>
+          <h1 id="cityName">Haut Founty District</h1>
+          <p id="cityDescription" class="description">
+            <span class="highlight">Haut Founty (فونتي العليا)</span> is one of
+            the most modern and rapidly developing residential neighborhoods in
+            Agadir, Morocco. Located just inland from the beachside district of
+            Founty, it's known for its
+            <span class="highlight"
+              >quiet, upscale atmosphere, well-planned streets</span
+            >, and growing popularity among professionals, families, and
+            investors seeking a sophisticated urban lifestyle with convenient
+            access to all of Agadir's amenities.
+          </p>
+
+          <div class="activities-section">
+            <h2>Refined Lifestyle</h2>
+            <ul id="activitiesList" class="activities-list">
+              <li><i class="fas fa-spa"></i> Premium Wellness & Fitness</li>
+              <li><i class="fas fa-utensils"></i> Upscale Dining and Cafés</li>
+              <li>
+                <i class="fas fa-shopping-bag"></i> Boutique Local Shopping
+              </li>
+              <li>
+                <i class="fas fa-child"></i> Family-Friendly Community Spaces
+              </li>
+              <li>
+                <i class="fas fa-briefcase"></i> Professional Business Services
+              </li>
+              <li>
+                <i class="fas fa-home"></i> Luxury Residential Developments
+              </li>
+            </ul>
+          </div>
+
+          <button class="reservation-btn">
+            <i class="fas fa-home"></i> Explore Residential Options
+          </button>
         </div>
+      </div>
     </main>
-
-    <script src="script.js"></script>
-</body>
-</html> 
+  </body>
+</html>
