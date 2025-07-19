@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Talborjt - Agadir | Cultural Heart of Morocco</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-gradient: linear-gradient(
+          135deg,
+          #4361ee 0%,
+          #3a0ca3 50%,
+          #7209b7 100%
+        );
+        --secondary-gradient: linear-gradient(135deg, #7209b7 0%, #b5179e 100%);
+        --text-light: #f8f9fa;
+        --text-dark: #212529;
+        --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: var(--primary-gradient);
+        color: var(--text-light);
+        line-height: 1.7;
+        min-height: 100vh;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 3rem;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+      }
+
+      .logo {
+        font-size: 2rem;
+        font-weight: 700;
+        background: var(--secondary-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .back-btn {
+        padding: 0.8rem 1.5rem;
+        background: var(--secondary-gradient);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 15px rgba(114, 9, 183, 0.3);
+      }
+
+      .back-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(114, 9, 183, 0.4);
+      }
+
+      .main-content {
+        padding-top: 100px;
+        padding-bottom: 50px;
+      }
+
+      .city-info-container {
+        display: flex;
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 2rem;
+        padding: 0 2rem;
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      .city-image {
+        flex: 1;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transform-style: preserve-3d;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        height: 600px;
+      }
+
+      .city-image:hover {
+        transform: perspective(1000px) rotateX(5deg) rotateY(0) scale(1.02);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .city-image iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .city-details {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        padding: 3rem;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .city-details:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(to right, #f72585, #b5179e);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 700;
+      }
+
+      .description {
+        margin-bottom: 2.5rem;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.8;
+      }
+
+      .activities-section {
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: white;
+        position: relative;
+        display: inline-block;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: var(--secondary-gradient);
+        border-radius: 2px;
+      }
+
+      .activities-list {
+        list-style-type: none;
+      }
+
+      .activities-list li {
+        padding: 1rem 0;
+        padding-left: 2rem;
+        position: relative;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .activities-list li:hover {
+        transform: translateX(10px);
+        color: white;
+      }
+
+      .activities-list li:before {
+        content: "›";
+        color: #f72585;
+        font-weight: bold;
+        font-size: 1.5rem;
+        position: absolute;
+        left: 0;
+        top: 1rem;
+      }
+
+      .reservation-btn {
+        width: 100%;
+        padding: 1.2rem;
+        background: var(--secondary-gradient);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(114, 9, 183, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .reservation-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(114, 9, 183, 0.4);
+        background: linear-gradient(135deg, #b5179e 0%, #f72585 100%);
+      }
+
+      .tag-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 2rem;
+      }
+
+      .tag {
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        backdrop-filter: blur(5px);
+      }
+
+      .highlight {
+        background: rgba(247, 37, 133, 0.2);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+      }
+
+      @media (max-width: 1024px) {
+        .city-info-container {
+          flex-direction: column;
+        }
+
+        .city-image,
+        .city-details {
+          flex: none;
+          width: 100%;
+        }
+
+        .city-image {
+          height: 400px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          padding: 1rem 1.5rem;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .city-info-container {
+          padding: 0 1rem;
+        }
+
+        .city-details {
+          padding: 2rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+
+      /* Floating animation for visual interest */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">Talborjt</div>
+      <nav>
+        <a href="map.html">
+          <button class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Map
+          </button>
+        </a>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <div class="city-info-container">
+        <div class="city-image floating">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6540.48076663143!2d-9.596986757250965!3d30.422716848940897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3b6f44ea1ce39%3A0x49b51ad9b95af87e!2sTalborjt%2C%20Agadir%2080000!5e1!3m2!1sfr!2sma!4v1747566128015!5m2!1sfr!2sma"
+            width="1170"
+            height="800"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div class="city-details">
+          <div class="tag-container">
+            <span class="tag"
+              ><i class="fas fa-map-marker-alt"></i> Agadir, Morocco</span
+            >
+            <span class="tag"><i class="fas fa-heart"></i> Cultural Hub</span>
+            <span class="tag"
+              ><i class="fas fa-history"></i> Historic District</span
+            >
+          </div>
+
+          <h1 id="cityName">Talborjt District</h1>
+          <p id="cityDescription" class="description">
+            <span class="highlight">Talborjt (تلبورجت)</span> is one of the most
+            iconic and culturally rich neighborhoods in Agadir, Morocco. Once
+            the historic heart of the city before the devastating 1960
+            earthquake, Talborjt was completely rebuilt and now stands as a
+            <span class="highlight">symbol of Agadir's resilience</span> and
+            modern rebirth. Today, it blends traditional Moroccan charm with
+            contemporary vibrancy, offering visitors an authentic experience.
+          </p>
+
+          <div class="activities-section">
+            <h2>Featured Activities</h2>
+            <ul id="activitiesList" class="activities-list">
+              <li>
+                <i class="fas fa-shopping-bag"></i> Explore Local Markets &
+                Boutiques
+              </li>
+              <li>
+                <i class="fas fa-coffee"></i> Experience Authentic Café Culture
+              </li>
+              <li>
+                <i class="fas fa-music"></i> Enjoy Live Music & Cultural Events
+              </li>
+              <li>
+                <i class="fas fa-mosque"></i> Visit the Magnificent Mohamed V
+                Mosque
+              </li>
+              <li><i class="fas fa-park"></i> Relax in Lush Public Gardens</li>
+              <li>
+                <i class="fas fa-utensils"></i> Savor Traditional Moroccan
+                Cuisine
+              </li>
+            </ul>
+          </div>
+
+          <button class="reservation-btn">
+            <i class="fas fa-calendar-check"></i> Book Your Experience
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
