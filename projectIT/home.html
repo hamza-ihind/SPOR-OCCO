@@ -108,8 +108,16 @@
         <!-- Call-to-action buttons -->
         <div class="hero-cta">
           <div class="hero-buttons">
-            <button class="hero-button-primary">🗺️ Explore Agadir Map</button>
-            <button class="hero-button-secondary">📋 View Activities</button>
+            <a href="map.html">
+              <button class="hero-button-primary" href="map.html">
+                🗺️ Explore Agadir Map
+              </button>
+            </a>
+            <a href="#activities">
+              <button class="hero-button-secondary" href="#activities">
+                📋 View Activities
+              </button>
+            </a>
           </div>
 
           <!-- Additional info -->
@@ -483,7 +491,7 @@
       }
     </style>
 
-    <section class="features-section">
+    <section class="features-section" id="activities">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Sport Activities in Agadir</h2>
@@ -494,15 +502,18 @@
         </div>
 
         <div class="features-grid">
-          <div class="feature-card surfing">
+          <div class="feature-card football">
             <div class="feature-icon">
-              <div class="icon-wave">🏄‍♂️</div>
+              <div class="icon-football">⚽</div>
             </div>
             <h3 class="feature-title">Football</h3>
             <p class="feature-description">
-              Watch a Hassania Union Sport Agadir (HUSA) game
+              Experience the passion of Moroccan football! Watch Hassania Union
+              Sport Agadir (HUSA) play at the magnificent Adrar Stadium, or join
+              local pickup games on Agadir's beautiful beaches. Feel the
+              electric atmosphere of Morocco's most beloved sport.
             </p>
-            <div class="feature-highlight">200 MAD</div>
+            <div class="feature-highlight">From 150 MAD</div>
           </div>
 
           <div class="feature-card golf">
@@ -511,8 +522,10 @@
             </div>
             <h3 class="feature-title">Golf</h3>
             <p class="feature-description">
-              World-class golf courses with stunning Atlantic views. Play on
-              championship courses designed by renowned architects.
+              Tee off at world-class championship golf courses with breathtaking
+              Atlantic Ocean views. Play on meticulously designed courses by
+              renowned architects, featuring lush fairways and challenging holes
+              that blend seamlessly with Morocco's stunning landscape.
             </p>
             <div class="feature-highlight">5 Premium Courses</div>
           </div>
@@ -523,22 +536,26 @@
             </div>
             <h3 class="feature-title">Tennis</h3>
             <p class="feature-description">
-              Modern tennis facilities with professional coaching. Clay and hard
-              courts available in luxury resorts.
+              Perfect your game on professional-grade tennis courts with expert
+              coaching available. Choose from clay, hard, or grass courts at
+              luxury resorts and tennis clubs. Enjoy year-round perfect weather
+              for tennis in Agadir's ideal climate.
             </p>
-            <div class="feature-highlight">Year-round Play</div>
+            <div class="feature-highlight">Year-round Perfect Weather</div>
           </div>
 
-          <div class="feature-card horseback">
+          <div class="feature-card beach">
             <div class="feature-icon">
-              <div class="icon-horse">🐎</div>
+              <div class="icon-beach">🏖️</div>
             </div>
-            <h3 class="feature-title">Horseback Riding</h3>
+            <h3 class="feature-title">Beach</h3>
             <p class="feature-description">
-              Ride along pristine beaches and through traditional Berber
-              villages. Sunset rides are particularly magical.
+              Relax on Agadir's pristine 10-kilometer golden sandy beach. Enjoy
+              beach volleyball, surfing lessons, jet skiing, or simply unwind
+              under the Moroccan sun. The beach offers perfect conditions for
+              water sports and relaxation year-round.
             </p>
-            <div class="feature-highlight">Beach & Mountain Trails</div>
+            <div class="feature-highlight">10km Golden Sand</div>
           </div>
 
           <div class="feature-card fishing">
@@ -547,22 +564,26 @@
             </div>
             <h3 class="feature-title">Deep Sea Fishing</h3>
             <p class="feature-description">
-              Experience Atlantic fishing at its finest. Target marlin, tuna,
-              and dorado with experienced local guides.
+              Embark on an unforgettable deep sea fishing adventure in the rich
+              Atlantic waters. Target magnificent species like blue marlin,
+              yellowfin tuna, and dorado with experienced local captains who
+              know the best fishing spots off Agadir's coast.
             </p>
             <div class="feature-highlight">Professional Charters</div>
           </div>
 
-          <div class="feature-card hiking">
+          <div class="feature-card horseback">
             <div class="feature-icon">
-              <div class="icon-mountain">🏔️</div>
+              <div class="icon-horse">🐎</div>
             </div>
-            <h3 class="feature-title">Atlas Mountain Hiking</h3>
+            <h3 class="feature-title">Horseback Riding</h3>
             <p class="feature-description">
-              Explore the nearby Atlas Mountains with guided treks. Discover
-              Berber culture and breathtaking landscapes.
+              Discover Agadir's beauty on horseback with scenic rides along
+              pristine beaches at sunset, through traditional Berber villages,
+              and across the stunning Souss Valley. Experience Morocco's
+              equestrian heritage with well-trained horses and expert guides.
             </p>
-            <div class="feature-highlight">Day & Multi-day Treks</div>
+            <div class="feature-highlight">Beach & Mountain Trails</div>
           </div>
         </div>
       </div>
@@ -570,7 +591,7 @@
       <style>
         .features-section {
           padding: 80px 20px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #061869 0%, #3c1068 100%);
           min-height: 100vh;
           display: flex;
           align-items: center;
@@ -594,7 +615,7 @@
           margin-bottom: 16px;
           background: linear-gradient(45deg, #fff, #f0f9ff);
           -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          -webkit-text-fill-color: white;
           background-clip: text;
           text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -733,23 +754,23 @@
         }
 
         /* Specific card accent colors */
-        .surfing:hover {
-          border-left: 5px solid #06b6d4;
-        }
-        .golf:hover {
+        .football:hover {
           border-left: 5px solid #10b981;
         }
-        .tennis:hover {
+        .golf:hover {
           border-left: 5px solid #f59e0b;
         }
-        .horseback:hover {
-          border-left: 5px solid #8b5cf6;
+        .tennis:hover {
+          border-left: 5px solid #06b6d4;
+        }
+        .beach:hover {
+          border-left: 5px solid #84cc16;
         }
         .fishing:hover {
           border-left: 5px solid #ef4444;
         }
-        .hiking:hover {
-          border-left: 5px solid #84cc16;
+        .horseback:hover {
+          border-left: 5px solid #8b5cf6;
         }
 
         /* Responsive Design */
@@ -1410,7 +1431,7 @@
               <div class="contact-card-icon">📍</div>
               <h4 class="contact-card-title">Visit Our Office</h4>
               <p class="contact-card-info">
-                Agadir Marina, Boulevard Mohamed V
+                Immeubles Mamounia - Dakhla - Agadir
               </p>
               <p class="contact-card-detail">Agadir 80000, Morocco</p>
             </div>
