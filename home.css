@@ -236,6 +236,7 @@ body.show-nav #header-toggler span:last-child{
     border-radius: 50%;
     background: #5350c4;
     transition: all 0.2s ease;
+    z-index: 999;
 }
 
 body.show-chatbot #chatbot-toggler{
@@ -276,6 +277,7 @@ body.show-chatbot .chatbot-popup {
     opacity: 1;
     pointer-events: auto;
     transform: scale(1);
+    z-index: 999;
 }
 
 .chat-header{
